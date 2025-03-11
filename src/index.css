@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-neptech-dark font-medium text-base transition-all duration-300 ease-elastic;
+    @apply after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0;
+    @apply after:bg-neptech-blue after:origin-bottom-right after:transition-transform after:duration-300;
+    @apply hover:text-neptech-blue hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+  
+  .service-card {
+    @apply relative overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-500;
+    @apply hover:shadow-xl hover:translate-y-[-5px] hover:scale-[1.01];
+  }
+  
+  .service-icon-container {
+    @apply relative flex items-center justify-center w-16 h-16 rounded-full bg-neptech-lightBlue mb-6;
+    @apply before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-neptech-blue before:opacity-0;
+    @apply before:scale-75 before:transition-all before:duration-300 overflow-hidden;
+  }
+  
+  .service-card:hover .service-icon-container::before {
+    @apply opacity-10 scale-100;
+  }
+  
+  .service-card:hover .service-icon {
+    @apply text-neptech-blue scale-110;
+  }
+  
+  .service-icon {
+    @apply relative z-10 text-neptech-blue w-8 h-8 transition-all duration-300;
+  }
+  
+  .team-card {
+    @apply relative overflow-hidden rounded-2xl bg-white shadow-lg;
+    @apply transition-all duration-500 ease-elastic;
+    @apply hover:shadow-xl;
+  }
+  
+  .button-primary {
+    @apply rounded-full bg-neptech-blue text-white px-8 py-3 font-medium;
+    @apply transition-all duration-300 ease-elastic;
+    @apply shadow-[0_5px_15px_rgba(0,123,255,0.3)];
+    @apply hover:shadow-[0_8px_25px_rgba(0,123,255,0.5)] hover:translate-y-[-2px];
+    @apply active:translate-y-[1px] active:shadow-[0_2px_10px_rgba(0,123,255,0.3)];
+  }
+  
+  .button-secondary {
+    @apply rounded-full bg-white text-neptech-blue border border-neptech-blue px-8 py-3 font-medium;
+    @apply transition-all duration-300 ease-elastic;
+    @apply hover:bg-neptech-lightBlue hover:translate-y-[-2px];
+    @apply active:translate-y-[1px];
+  }
+  
+  .highlight-text {
+    @apply relative inline-block;
+    @apply after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[30%];
+    @apply after:bg-neptech-blue/10 after:rounded after:-z-10;
+  }
+  
+  .blur-bg {
+    @apply relative;
+    @apply before:content-[''] before:absolute before:-z-10 before:inset-0 before:bg-white/60;
+    @apply before:backdrop-blur-md before:rounded-2xl;
+  }
+  
+  .floating-icon {
+    @apply absolute pointer-events-none animate-float;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-neptech-gray;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-neptech-blue/30 rounded-full;
+    @apply hover:bg-neptech-blue/50;
+  }
+  
+  .social-icon-3d {
+    @apply relative overflow-hidden transform transition-transform duration-300;
+    @apply hover:scale-110 hover:shadow-lg;
+  }
+  
+  .social-icon-3d::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-300;
+    background: radial-gradient(
+      100px circle at var(--icon-mouse-x) var(--icon-mouse-y),
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+  }
+  
+  .social-icon-3d:hover::before {
+    @apply opacity-100;
+  }
+}
+
+.html {
+  scroll-behavior: smooth;
+}
+
+/* 3D Card effect */
+.card-3d {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-3d-content {
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateZ(0);
+}
+
+.card-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    100px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.card-3d:hover .card-shine {
+  opacity: 1;
+}
+
+/* Adding tilt effect to cards */
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0));
+}
+
+/* Add animated pulse glow to footer elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0.5rem rgba(0, 123, 255, 0));
+  }
+  50% {
+    filter: drop-shadow(0 0 1rem rgba(0, 123, 255, 0.3));
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
